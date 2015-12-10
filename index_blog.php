@@ -84,10 +84,10 @@ $query->execute();
         ?>
         <?php
             if($prev > 0) {
-                echo "<a href'index_blog.php?p=$prev'>Prev</a>";
+                echo "<a href='index_blog.php?p=$prev'>Prev</a>";
             }
             if($page < $pages) {
-                echo "<a href'index_blog.php?p=$next'>Next</a>";
+                echo "<a href='index_blog.php?p=$next'>Next</a>";
             }
         ?>
     </div>
