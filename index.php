@@ -6,7 +6,7 @@ if(!isset($_SESSION['user_id'])) {
     exit();
 }
 //include database connection
-    require_once('./includes/connect.php');
+    require_once('./includes/connection.php');
 // post count
 $post_count = $db->query("SELECT * FROM posts");
 // comment count
