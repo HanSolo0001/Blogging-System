@@ -1,7 +1,7 @@
 <?php
 
 //include database connection
-    require_once('./includes/connect.php');
+    require_once('./includes/connection.php');
 // get record of database
 $record_count = count($db->query("SELECT COUNT(post_id) FROM posts")->fetchAll());
 //amount displayed
