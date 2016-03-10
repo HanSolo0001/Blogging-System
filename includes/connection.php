@@ -2,8 +2,8 @@
 
 //DB configuration Constants
 	define('_HOST_NAME_', 'localhost');
-	define('_USER_NAME_', 'example_user');
-	define('_DB_PASSWORD', 'example_password');
+	define('_USER_NAME_', 'demo');
+	define('_DB_PASSWORD', 'demo');
 	define('_DATABASE_NAME_', 'example_database');
 	
 	//PDO Database Connection
