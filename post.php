@@ -7,7 +7,7 @@ if(!isset($_GET['id'])) {
     $id = $_GET['id'];
 }
 //include database connection
-   require_once('./includes/connect.php');
+   require_once('./includes/connection.php');
 if(!is_numeric($id)) {
     header('Location: index_blog.php');
 }
