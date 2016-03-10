@@ -1,7 +1,7 @@
 <?php
 session_start();
 	
-require_once('../includes/connect.php');
+require_once('../includes/connection.php');
 	
 if(isset($_POST['submit'])){
     $errMsg = '';
