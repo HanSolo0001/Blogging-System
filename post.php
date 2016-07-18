@@ -64,10 +64,12 @@ if($addComment = $db->prepare("INSERT INTO comments(post_id, email_add, name, co
     $addComment->bindParam(':name', $name);
     $addComment->bindParam(':comment', $comment);
     $addComment->execute();
-    echo "Thank you! Your comment was added.";
+    if($addComment) {
+    echo "<script type='text/javascript'>alert('Thank you! Your comment was added.')</script>";
+    }
     $addComment->closeCursor();   
 } else {
-    echo "Error";
+    echo "<script type='text/javascript'>alert('Failed!')</script>";
 }
 
 ?>
