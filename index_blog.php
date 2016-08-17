@@ -2,24 +2,23 @@
 
 //include database connection
     require_once('./includes/connection.php');
+    
 // get record of database
 $record_count = count($db->query("SELECT COUNT(post_id) FROM posts")->fetchAll());
+
 //amount displayed
 $per_page = 5;
+
 //number of pages
 $pages = ceil($record_count/$per_page);
 
 // get page number
-if(isset($_GET['p']) && is_numeric($_GET['p'])) {
-    $page = $_GET['p'];
-} else {
-    $page = 1;
-}
-if($page<=0) {
-    $start = 0;
-} else {
-    $start = $page * $per_page - $per_page;
-}
+$page = isset($_GET['p']) && is_numeric($_GET['p']) ? $_GET['p'] : 1 ;
+
+// get start number
+$start = $page <= 0 ? 0 : $page * $per_page - $per_page;
+
+// prev / next values
 $prev = $page - 1;
 $next = $page + 1;
 
@@ -42,7 +41,7 @@ $query->execute();
         padding: 10px;
         width: 800px;
         margin: auto;
-        backgroung: white;
+        background: white;
     }
     #menu {
         height: 40px;
@@ -70,14 +69,16 @@ $query->execute();
         </ul>
     </div>
     <div id="container">
-        <?php 
-            while($row = $query->fetch()):
-            $lastspace = strrpos($row['body'], ' ');
+        <?php
+        
+        while($article = $query->fetch()):
+        $lastspace = strrpos($article['body'], ' ');
+        
         ?>
         <article>
-            <h2><?php echo $row['title']?></h2>
-            <p><?php echo substr($row['body'], 0, $lastspace)."<a href='post.php?id={$row['post_id']}'> Read More</a>"?></p>
-            <p>Category: <?php echo $row['category']?></p>
+            <h2><?php echo $article['title']?></h2>
+            <p><?php echo substr($article['body'], 0, $lastspace)."<a href='post.php?id={$article['post_id']}'> Read More</a>"?></p>
+            <p>Category: <?php echo $article['category']?></p>
         </article>
         <?php
             endwhile;
