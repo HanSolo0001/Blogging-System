@@ -70,10 +70,8 @@ $query->execute();
     </div>
     <div id="container">
         <?php
-        
-        while($article = $query->fetch()):
-        $lastspace = strrpos($article['body'], ' ');
-        
+            while($article = $query->fetch()):
+            $lastspace = strrpos($article['body'], ' ');
         ?>
         <article>
             <h2><?php echo $article['title']?></h2>
